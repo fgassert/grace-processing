@@ -63,10 +63,11 @@ def main():
     cols = arr.shape[2]
     d = 1
     transform = A.translation(-cols*d/2,-rows*d/2) * A.scale(d,d)
-    slope_arr = np.flipud(np.roll(slope_arr.astype(rio.float64),180))
-    r2_arr = np.flipud(np.roll(r2_arr.astype(rio.float64),180))
-    p_arr = np.flipud(np.roll(p_arr.astype(rio.float64),180))
-    t_err = np.flipud(np.roll(t_err.astype(rio.float64),180))
+    print transform
+    slope_arr = np.roll(slope_arr.astype(rio.float64),180)
+    r2_arr = np.roll(r2_arr.astype(rio.float64),180)
+    p_arr = np.roll(p_arr.astype(rio.float64),180)
+    t_err = np.roll(t_err.astype(rio.float64),180)
 
     with rio.open(OUT, 'w',
                   'GTiff',
